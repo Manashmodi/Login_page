@@ -1,0 +1,190 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:#008080; 
+            transition: background-color 0.1s ease;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('https://i.ibb.co/fH8CFTR/joanna-kosinska-7-ACu-Hoez-UYk-unsplash.jpg');
+            background-repeat: no-repeat;
+            background-size:cover;
+
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: auto;
+            width: 40%;
+            margin-left: 49%;
+            background-image: url('https://i.ibb.co/bm6TbzF/h7.jpg');
+            background-repeat: no-repeat;
+            background-size:cover;
+        }
+
+        label {
+            display: block;
+            float: left;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        select {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        } 
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration Page</title>
+        <style>
+            /* Your CSS styles remain unchanged */
+    
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="color: #fff;">Registration Page</h1>
+        <form action="./api/registration.php" method="post" id="myform">
+            <label for="name">Name</label>
+            <input type="text" name="name" placeholder="Enter name"id="uname" required><br><br>
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Enter Email" id="email" required>
+            <span class="error" id="EmailError"></span><br><br>
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Enter password" id="password" required>
+            <span class="error" id="PasswordError"></span><br><br>
+            <label for="Cpassword">Confirm Password</label>
+            <input type="password" name="Cpassword" placeholder="Confirm password" id="confirmPassword" required>
+            <span class="error" id="ConfirmPasswordError"></span><br><br>
+            <label for="role">Select Gender</label>
+            <select name="role" required>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+            </select><br><br>
+            <input type="submit" name="submit" value="Submit" /><br><br>
+            Already a user? <a href="./index.html">Login Here</a>
+        </form> 
+      <script>
+document.getElementById('myform').addEventListener('submit', function (event) {
+    validateForm(event);
+});
+
+function validateForm(event) {
+    var emailInput = document.getElementById('email');
+    var passwordInput = document.getElementById('password');
+    var confirmPasswordInput = document.getElementsByName('Cpassword')[0];
+
+    var email = emailInput.value;
+    if (!isValidEmail(email)) {
+        showError('EmailError', 'Please enter a valid email address');
+        event.preventDefault();
+    } else {
+        hideError('EmailError');
+    }
+
+ 
+    var password = passwordInput.value;
+    if (password.length  < 7) {
+        showError('PasswordError', 'Password must be at least 7 characters');
+        event.preventDefault();
+    } else {
+        hideError('PasswordError');
+    }
+
+    var confirmPassword = confirmPasswordInput.value;
+    if (password !== confirmPassword) {
+        showError('ConfirmPasswordError', 'Passwords do not match');
+        event.preventDefault();
+    } else {
+        hideError('ConfirmPasswordError');
+    }
+}
+
+function isValidEmail(email) {
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function showError(elementId, errorMessage) {
+    var errorElement = document.getElementById(elementId);
+    errorElement.innerHTML = errorMessage;
+    errorElement.style.display = 'block';
+}
+
+function hideError(elementId) {
+    var errorElement = document.getElementById(elementId);
+    errorElement.innerHTML = '';
+    errorElement.style.display = 'none';
+}
+
+
+</script>
+        
+    </body>
+    </html>
+

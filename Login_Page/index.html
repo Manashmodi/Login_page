@@ -1,0 +1,104 @@
+
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            background-color:skyblue;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; 
+            background-image: url('https://i.ibb.co/fH8CFTR/joanna-kosinska-7-ACu-Hoez-UYk-unsplash.jpg');
+            background-repeat: no-repeat;
+            background-size:cover;
+        }
+
+        #headerSystem {
+            color: #fff;
+            text-align: center;
+            margin-top: -10%;
+            margin-bottom: 100px;
+         
+        }
+
+        #bodySection {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 40%;
+            margin-left: 40%; 
+            background-image: url('https://i.ibb.co/bm6TbzF/h7.jpg');
+            background-repeat: no-repeat;
+            background-size:cover;
+
+        }
+
+        form {
+        
+            margin: auto;
+            width: 40%;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            float: left;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div id="headerSystem">
+        <h1>LOGIN-PAGE</h1> 
+    </div>
+    <hr/>
+    <div id="bodySection">
+        <form action="./api/login.php" method="POST">
+            <h2>Login</h2> 
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Enter email"><br><br>
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Enter password"><br><br>
+            <input type="submit" name="submit" value="Submit" /><br><br>
+            New user? <a href="registration.html">Register here</a>
+        </form>
+    </div>
+</body>
+</html>
